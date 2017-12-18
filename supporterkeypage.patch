@@ -1,0 +1,29 @@
+--- MediaBrowser.Mobile-googlearmv7-release/assets/www/scripts/supporterkeypage.js	2017-12-18 10:27:00.959672163 +0100
++++ scripts/supporterkeypage.js	2017-12-18 10:42:14.391539234 +0100
+@@ -7,16 +7,9 @@
+                 if (statusInfo) {
+                     var statusLine, indicator = page.querySelector("#status-indicator .listItemIcon"),
+                         extendedPlans = page.querySelector("#extended-plans");
+-                    switch (extendedPlans.innerHTML = globalize.translate("MessagePremiereExtendedPlans", '<a is="emby-linkbutton" class="button-link" href="https://emby.media/premiere-ext.html" target="_blank">', "</a>"), statusInfo.deviceStatus) {
+-                        case 2:
+-                            statusLine = globalize.translate("MessagePremiereStatusOver", statusInfo.planType), indicator.classList.add("expiredBackground"), indicator.classList.remove("nearExpiredBackground"), indicator.innerHTML = "&#xE000;", extendedPlans.classList.remove("hide");
+-                            break;
+-                        case 1:
+-                            statusLine = globalize.translate("MessagePremiereStatusClose", statusInfo.planType), indicator.classList.remove("expiredBackground"), indicator.classList.add("nearExpiredBackground"), indicator.innerHTML = "&#xE000;", extendedPlans.classList.remove("hide");
+-                            break;
+-                        default:
+-                            statusLine = globalize.translate("MessagePremiereStatusGood", statusInfo.planType), indicator.classList.remove("expiredBackground"), indicator.classList.remove("nearExpiredBackground"), indicator.innerHTML = "&#xE5CA;", extendedPlans.classList.add("hide")
+-                    }
++
++                    statusLine = globalize.translate("MessagePremiereStatusGood", statusInfo.planType), indicator.classList.remove("expiredBackground"), indicator.classList.remove("nearExpiredBackground"), indicator.innerHTML = "&#xE5CA;", extendedPlans.classList.add("hide")
++
+                     page.querySelector("#premiere-status").innerHTML = statusLine;
+                     var subsElement = page.querySelector("#premiere-subs");
+                     if (statusInfo.subscriptions && statusInfo.subscriptions.length > 0) {
+@@ -141,4 +134,4 @@
+             loadUserInfo(this), load(this)
+         })
+     }
+-});
+\ No newline at end of file
++});
